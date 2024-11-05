@@ -14,38 +14,7 @@ struct ContentView: View {
     @State var color = false
     @State var colorSecond = false
     var body: some View {
-        ZStack {
-            Color.pink
-            if color {
-                Color.black
-            }
-            if colorSecond {
-                VStack(spacing:0) {
-                    Color.red
-                    Color.orange
-                    Color.yellow
-                    Color.green
-                    Color.blue
-                    Color.purple
-                }
-            }
-            VStack(spacing:5) {
-                if toggle {
-                    Text("А я всегда знал, что ты")
-                }
-                Text(firstText)
-                if button {
-                Button {
-                    result()
-                }
-                label:  {
-                    Text("ПРОВЕРИТЬ")
-                }
-            }
-            }
-        }
-        .frame(width: 200)
-        .padding()
+        someView()
     }
     
     func result() {
@@ -62,6 +31,41 @@ struct ContentView: View {
             color = false
             colorSecond = true
         }
+    }
+    
+    func someView() -> some View {
+        ZStack {
+            Color.pink
+            if color {
+                Color.black
+            }
+            if colorSecond {
+                VStack(spacing: 0) {
+                    Color.red
+                    Color.orange
+                    Color.yellow
+                    Color.green
+                    Color.blue
+                    Color.purple
+                }
+            }
+            VStack(spacing: 5) {
+                if toggle {
+                    Text("А я всегда знал, что ты")
+                }
+                Text(firstText)
+                if button {
+                Button {
+                    result()
+                }
+                label:  {
+                    Text("ПРОВЕРИТЬ")
+                }
+            }
+            }
+        }
+        .frame(width: 200)
+        .padding()
     }
 }
 
